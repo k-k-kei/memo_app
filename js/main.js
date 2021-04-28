@@ -28,6 +28,13 @@ for (let i = 0; i < localStorage.length; i++) {
     $(".memoblock-contents").append(html);
 }
 
+// メモ削除
+$(".text-delete").on("click", function () {
+    let key = $(".textarea-title").html();
+    localStorage.removeItem(key);
+    location.reload();
+});
+
 // メモ一覧クリック時の処理
 // クリックしたメモのタイトルを右側に表示
 $(".textarea-items").on("click", function () {
@@ -43,10 +50,4 @@ $(".textarea-items").on("click", function () {
     let text = $(".textarea-items-text").eq(n).html();
     $(".textarea-text").html(text);
     console.log(n, text);
-});
-
-$(".text-delete").on("click", function () {
-    let key = $(".textarea-title").html();
-    localStorage.removeItem(key);
-    location.reload();
 });
