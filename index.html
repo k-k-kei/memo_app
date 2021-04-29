@@ -20,12 +20,28 @@
                 <div class="inputbox-shadow"></div>
                 <div class="inputbox">
                     <p class="inputbox-title">タイトル</p>
-                    <input type="text" class="inputbox-title-input">
+                    <input type="text" class="inputbox-title-input" maxlength="50">
                     <p class="inputbox-text">本文</p>
-                    <textarea name="input-text-box" class="input-text-long" cols="30" rows="10"></textarea>
+                    <textarea name="input-text-box" class="input-text-long" cols="30" rows="10"
+                        maxlength="500"></textarea>
                     <div class="modal-btn">
                         <div class="closebtn">閉じる</div>
                         <div class="savebtn">保存</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-edit">
+                <div class="inputbox-shadow-edit"></div>
+                <div class="inputbox-edit">
+                    <p class="inputbox-title-edit">タイトル</p>
+                    <p class="inputbox-title-input-edit"></p>
+                    <p class="inputbox-text">本文</p>
+                    <textarea name="input-text-box" class="input-text-long-edit" cols="30" rows="10"
+                        maxlength="500"></textarea>
+                    <div class="modal-btn-edit">
+                        <div class="closebtn-edit">閉じる</div>
+                        <div class="savebtn-edit">更新</div>
                     </div>
                 </div>
             </div>
@@ -103,6 +119,13 @@
             <!-- ヘッダー -->
             <div class="textarea">
                 <div class="textarea-header">
+                    <div class="text-edit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path
+                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                        </svg>
+                    </div>
                     <div class="text-delete">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-trash" viewBox="0 0 16 16">

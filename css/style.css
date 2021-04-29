@@ -27,6 +27,8 @@ a{
 --------------------------------------------------- */
 .modal{
     display: none;
+    position: static;
+    z-index: 10;
 }
 
 .inputbox{
@@ -44,7 +46,7 @@ a{
 
 .inputbox-shadow{
     background: rgba(0,0,0,0.2);
-    height: 100vh;
+    height: 100%;
     position: absolute;
     width: 100%;
 }
@@ -81,6 +83,75 @@ a{
 .savebtn{
     padding: 10px 25px;
     background-color: #4169e1;
+    color: #fff;
+}
+
+/* -----------------------------------------------
+
+メモ編集画面 
+
+--------------------------------------------------- */
+.modal-edit{
+    display: none;
+    position: static;
+    z-index: 10;
+}
+
+.inputbox-edit{
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 60%;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+}
+
+.inputbox-shadow-edit{
+    background: rgba(0,0,0,0.2);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.inputbox-title-edit{
+    padding: 10px 0;
+}
+
+.inputbox-title-input-edit{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+.inputbox-text-edit{
+    padding: 10px 0;
+}
+
+.input-text-long-edit{
+    width: 80%;
+}
+
+.modal-btn-edit{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    align-items: center;
+}
+
+.closebtn-edit{
+    padding: 10px 20px;
+    background-color: #a7a7a7;
+    color: #000000;
+}
+
+.savebtn-edit{
+    padding: 10px 25px;
+    background-color: red;
     color: #fff;
 }
 
@@ -155,6 +226,8 @@ a{
     height: 100vh;
     background-color: #fafafa;
     border-right: 1px solid #d3d3d3;
+    overflow: scroll;
+
 }
 
 .memoblock-header{
@@ -188,7 +261,6 @@ a{
     margin-bottom: 20px;
     width: 100%;
     height: 9vh;
-    overflow: hidden;
 }
 
 .textarea-items-title{
@@ -196,12 +268,16 @@ a{
     font-weight: bold;
     line-height: 20px;
     white-space: nowrap;
+    overflow: hidden;
 }
 
 .textarea-items-text{
-    padding: 5px;
     font-size: 12px;
-    line-height: 18px;
+    padding: 1px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 /* -----------------------------------------------
@@ -211,8 +287,13 @@ a{
 --------------------------------------------------- */
 .textarea{
     width: 50%;
-    height: 100vh;
+    height: 100%;
     background-color: #fafafa;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    overflow: scroll;
 }
 
 .textarea-header{
@@ -220,14 +301,16 @@ a{
     height: 3vh;
     padding: 20px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
+.text-edit{
+    padding: 5px 20px;
+}
+
 .text-delete{
-    width: 100%;
-    text-align: end;
-    padding: 5px;
+    padding: 5px 20px;
 }
 
 .textarea-contents{

@@ -28,6 +28,29 @@ for (let i = 0; i < localStorage.length; i++) {
     $(".memoblock-contents").append(html);
 }
 
+// メモの編集
+$(".text-edit").on("click", function () {
+    $(".modal-edit").fadeIn();
+    let title = $(".textarea-title").html();
+    let text = $(".textarea-text").html();
+    $(".inputbox-title-input-edit").html(title);
+    $(".input-text-long-edit").val(text);
+});
+
+// 編集画面クローズ
+$(".closebtn-edit").on("click", function () {
+    $(".modal-edit").fadeOut();
+})
+
+// 編集画面更新ボタン
+$(".savebtn-edit").on("click", function () {
+    let index = $(".textarea-title").index();
+    let title = localStorage.key(index);
+    let edit = $(".input-text-long-edit").val();
+    localStorage.setItem(title, edit);
+    location.reload();
+})
+
 // メモ削除
 $(".text-delete").on("click", function () {
     let key = $(".textarea-title").html();
