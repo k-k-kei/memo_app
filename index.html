@@ -15,6 +15,23 @@
 
 <body>
     <div class="wapper">
+
+        <!-- モーダル -->
+        <div class="modal">
+            <div class="inputbox-shadow"></div>
+            <div class="inputbox">
+                <p class="inputbox-title">タイトル</p>
+                <input type="text" class="inputbox-title-input" maxlength="50">
+                <p class="inputbox-text">本文</p>
+                <textarea name="input-text-box" class="input-text-long" cols="30" rows="10" maxlength="500"></textarea>
+                <div class="modal-btn">
+                    <div class="modal-closebtn">閉じる</div>
+                    <div class="modal-savebtn">保存</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ヘッダー -->
         <header class="header">
             <div class="header-contents">
                 <div class="logo">memoma</div>
@@ -26,20 +43,25 @@
                     </svg>
                 </div>
             </div>
+            <!-- モード切り替えボタン -->
+            <button class="mode-btn1">標準</button>
+            <button class="mode-btn2">テーマ固定</button>
         </header>
+        <!-- エラー表示 -->
+        <!-- <div class="error">※文字を入力しましょう！</div> -->
+
         <div class="container">
 
             <!-- 新規メモ入力画面 -->
-            <div class="modal">
-                <div class="inputbox">
-                    <p class="inputbox-title">なにに？</p>
-                    <input type="text" class="inputbox-title-input" maxlength="50">
-                    <p class="inputbox-text">どんな特徴がある？</p>
+            <div class="new">
+                <div class="inputarea">
+                    <p class="inputarea-title">なにに？</p>
+                    <input type="text" class="inputarea-title-input" maxlength="50">
+                    <p class="inputarea-text">どんな特徴がある？</p>
                     <textarea name="input-text-box" class="input-text-long" cols="30" rows="10"
                         maxlength="500"></textarea>
-                    <div class="modal-btn">
+                    <div class="new-btn">
                         <div class="savebtn">保存</div>
-                        <!-- <div class="closebtn">閉じる</div> -->
                     </div>
                 </div>
             </div>
@@ -58,7 +80,7 @@
                 </div>
             </div>
 
-            <!-- メモ掛け算 -->
+            <!-- メモ掛け算（モード1） -->
             <div class="show">
                 <div class="showarea">
                     <div class="showtitle">アイデアを広げよう！</div>
@@ -81,12 +103,36 @@
                 </div>
             </div>
 
-            <script src="js/jquery-3.6.0.min.js"></script>
-            <script src="js/main.js"></script>
+            <!-- メモ掛け算（モード2） -->
+            <div class="second-contents">
+                <div class="showarea">
+                    <div class="showtitle">テーマを決めてブレストしよう！</div>
+                    <div class="shuffle">掛け合わせる</div>
+                    <div class="memoarea">
+                        <div class="memo1 memosize">
+                            <p class="memo1-title memotitle"></p>
+                            <p class="memo1-text memotext"></p>
+                        </div>
+                        <div class="mark">×</div>
+                        <div class="memo2 memosize staticmemo">
+                            <p class="static-title memotitle"></p>
+                            <p class="static-text memotext"></p>
+                        </div>
+                    </div>
+                    <div class="answer-title">テーマに自由に掛け合わせてみよう！</div>
+                    <div class="answerarea">
+                        <textarea name="" id="" cols="30" rows="10" class="show-answer"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <script>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/main.js"></script>
 
-            </script>
+        <script>
+
+        </script>
 </body>
 
 </html>
