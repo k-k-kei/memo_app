@@ -17,7 +17,6 @@
 
             <!-- 新規メモ入力画面 -->
             <div class="modal">
-                <div class="inputbox-shadow"></div>
                 <div class="inputbox">
                     <p class="inputbox-title">タイトル</p>
                     <input type="text" class="inputbox-title-input" maxlength="50">
@@ -25,69 +24,8 @@
                     <textarea name="input-text-box" class="input-text-long" cols="30" rows="10"
                         maxlength="500"></textarea>
                     <div class="modal-btn">
-                        <div class="closebtn">閉じる</div>
                         <div class="savebtn">保存</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-edit">
-                <div class="inputbox-shadow-edit"></div>
-                <div class="inputbox-edit">
-                    <p class="inputbox-title-edit">タイトル</p>
-                    <p class="inputbox-title-input-edit"></p>
-                    <p class="inputbox-text">本文</p>
-                    <textarea name="input-text-box" class="input-text-long-edit" cols="30" rows="10"
-                        maxlength="500"></textarea>
-                    <div class="modal-btn-edit">
-                        <div class="closebtn-edit">閉じる</div>
-                        <div class="savebtn-edit">更新</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- タグ -->
-            <!-- ヘッダー -->
-            <div class="tag">
-                <div class="tag-header"></div>
-                <div class="tag-header-items">
-                    <div class="allitems">
-                        <div class="allitems-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-                                <path
-                                    d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z" />
-                                <path
-                                    d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z" />
-                            </svg>
-                        </div>
-                        <div class="allitems-title">すべてのメモ</div>
-                    </div>
-                    <div class="trash">
-                        <div class="trash-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-trash" viewBox="0 0 16 16">
-                                <path
-                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                <path fill-rule="evenodd"
-                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                            </svg>
-                        </div>
-                        <div class="trash-title">ゴミ箱</div>
-                    </div>
-                </div>
-
-                <!-- コンテンツ -->
-                <div class="tag-header-tags">
-                    <div class="tag-header-tags-name">タグ</div>
-                    <div class="tag-header-tags-contents">
-                        <ul>
-                            <li class="tag-items">プログラミング</li>
-                            <li class="tag-items">デザイン</li>
-                            <li class="tag-items">動画編集</li>
-                            <li class="tag-items">料理</li>
-                            <li class="tag-items">コーヒー</li>
-                        </ul>
+                        <div class="closebtn">閉じる</div>
                     </div>
                 </div>
             </div>
@@ -97,15 +35,6 @@
             <div class="memoblock">
                 <div class="memoblock-header">
                     <p class="memoblock-title">すべてのメモ</p>
-                    <div class="new-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-                            <path
-                                d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
-                            <path
-                                d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
-                        </svg>
-                    </div>
                 </div>
 
 
@@ -115,43 +44,33 @@
                 </div>
             </div>
 
-            <!-- テキスト表示 -->
-            <!-- ヘッダー -->
-            <div class="textarea">
-                <div class="textarea-header">
-                    <div class="text-edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-pencil" viewBox="0 0 16 16">
-                            <path
-                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                        </svg>
+            <!-- メモ掛け算 -->
+            <div class="show">
+                <div class="showarea">
+                    <div class="shuffle">random</div>
+                    <div class="memoarea">
+                        <div class="memo1 memosize">
+                            <p class="memo1-title memotitle"></p>
+                            <p class="memo1-text memotext"></p>
+                        </div>
+                        <div class="mark">×</div>
+                        <div class="memo2 memosize">
+                            <p class="memo2-title memotitle"></p>
+                            <p class="memo2-text memotext"></p>
+                        </div>
                     </div>
-                    <div class="text-delete">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-trash" viewBox="0 0 16 16">
-                            <path
-                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                            <path fill-rule="evenodd"
-                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                        </svg>
+                    <div class="answerarea">
+                        <textarea name="" id="" cols="30" rows="10" class="show-answer"></textarea>
                     </div>
-                </div>
-
-                <!-- コンテンツ -->
-                <div class="textarea-contents">
-                    <div class="textarea-title"></div>
-                    <p class="textarea-text"></p>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/main.js"></script>
+            <script src="js/jquery-3.6.0.min.js"></script>
+            <script src="js/main.js"></script>
 
-    <script>
+            <script>
 
-    </script>
+            </script>
 </body>
 
 </html>

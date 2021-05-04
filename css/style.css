@@ -17,7 +17,7 @@ a{
 
 .container{
     display: flex;
-    position: relative;
+    margin: 0 auto;
 }
 
 /* -----------------------------------------------
@@ -25,196 +25,60 @@ a{
 メモ入力画面 
 
 --------------------------------------------------- */
+
 .modal{
-    display: none;
-    position: static;
-    z-index: 10;
+    width: 30%;
+    height: 100vh;
 }
 
 .inputbox{
-    background: #fff;
-    left: 50%;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 60%;
-    height: 60%;
-    text-align: center;
-    border: 1px solid #d3d3d3;
-}
-
-.inputbox-shadow{
-    background: rgba(0,0,0,0.2);
-    height: 100%;
-    position: absolute;
-    width: 100%;
+    margin: 20px 20px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
 .inputbox-title{
-    padding: 10px 0;
+    text-align: center;
+    padding: 20px 20px;
+    font-weight: bold;
 }
 
 .inputbox-title-input{
-    width: 80%;
+    display: block;
+    margin: 0 auto;
 }
+
 .inputbox-text{
-    padding: 10px 0;
+    text-align: center;
+    padding: 20px 20px;
+    font-weight: bold;
 }
 
 .input-text-long{
-    width: 80%;
+    display: block;
+    margin: 0 auto;
 }
 
 .modal-btn{
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    margin: 20px auto;
-    align-items: center;
-}
-
-.closebtn{
-    padding: 10px 20px;
-    background-color: #a7a7a7;
-    color: #000000;
+    width: 10vw;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px 30px;
 }
 
 .savebtn{
-    padding: 10px 25px;
-    background-color: #4169e1;
-    color: #fff;
-}
-
-/* -----------------------------------------------
-
-メモ編集画面 
-
---------------------------------------------------- */
-.modal-edit{
-    display: none;
-    position: static;
-    z-index: 10;
-}
-
-.inputbox-edit{
-    background: #fff;
-    left: 50%;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 60%;
-    height: 60%;
-    text-align: center;
-    border: 1px solid #d3d3d3;
-}
-
-.inputbox-shadow-edit{
-    background: rgba(0,0,0,0.2);
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-
-.inputbox-title-edit{
-    padding: 10px 0;
-}
-
-.inputbox-title-input-edit{
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px;
-}
-.inputbox-text-edit{
-    padding: 10px 0;
-}
-
-.input-text-long-edit{
-    width: 80%;
-}
-
-.modal-btn-edit{
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    margin: 20px auto;
-    align-items: center;
-}
-
-.closebtn-edit{
-    padding: 10px 20px;
-    background-color: #a7a7a7;
-    color: #000000;
-}
-
-.savebtn-edit{
-    padding: 10px 25px;
-    background-color: red;
-    color: #fff;
-}
-
-/* -----------------------------------------------
-
-タグ
-
---------------------------------------------------- */
-.tag{
-    width: 20%;
-    height: 100vh;
-    background-color: #f5f5f5;
-    border-right: 1px solid #d3d3d3;
-}
-
-.tag-header{
-    width: 100%;
-    height: 3vh;
-    padding: 20px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.tag-header-items{
-    font-size: 14px;
+    margin-bottom: 20px;
     padding: 10px 10px;
+    background-color: #4169e1;
+    font-size: 1em;
 }
 
-.allitems{
-    display: flex;
-    align-items: center;
-    padding: 8px;
+.closebtn{
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    background-color: #c0c0c0;
 }
-
-.allitems-title{
-    padding-left: 10px;
-}
-
-.trash{
-    display: flex;
-    align-items: center;
-    padding: 8px;
-}
-
-.trash-title{
-    padding-left: 10px;
-}
-
-.tag-header-tags{
-    margin: 10px 20px;
-}
-
-.tag-header-tags-name{
-    padding: 10px 0;
-    font-size: 12px;
-}
-
-.tag-items{
-    padding: 10px 5px;
-    font-size: 13px;
-}
-
 
 /* -----------------------------------------------
 
@@ -224,10 +88,11 @@ a{
 .memoblock{
     width: 30%;
     height: 100vh;
+    margin: 20px 20px;
     background-color: #fafafa;
-    border-right: 1px solid #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
     overflow: scroll;
-
 }
 
 .memoblock-header{
@@ -261,6 +126,8 @@ a{
     margin-bottom: 20px;
     width: 100%;
     height: 9vh;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
 .textarea-items-title{
@@ -278,53 +145,58 @@ a{
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    word-wrap: break-word;
 }
 
 /* -----------------------------------------------
 
-テキスト表示
+メモ掛け算
 
 --------------------------------------------------- */
-.textarea{
-    width: 50%;
-    height: 100%;
+
+.show{
+    width: 30%;
+    height: 100vh;
+    margin: 20px 20px;
     background-color: #fafafa;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    overflow: scroll;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
-.textarea-header{
+.memoarea{
+    width: 90%;
+    margin: 50px auto;
+}
+
+.memosize{
     width: 100%;
-    height: 3vh;
+    height: 20vh;
+    margin: 5px auto;
     padding: 20px 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    border-radius: 10px;
+    border: 5px solid #ffffff;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
+    overflow: scroll;
+    word-wrap: break-word;
 }
 
-.text-edit{
-    padding: 5px 20px;
-}
-
-.text-delete{
-    padding: 5px 20px;
-}
-
-.textarea-contents{
-    margin: 50px;
-}
-
-.textarea-title{
-    font-size: 30px;
+.memotitle{
+    font-size: 18px;
+    padding-bottom: 10px;
     font-weight: bold;
-    padding: 5px;
-    line-height: 40px;
 }
 
-.textarea-text{
-    padding: 30px 0;
-    line-height: 25px;
+.memotext{
+    font-size: 13px;
+;}
+
+.mark{
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.show-answer{
+    display: block;
+    margin: 0 auto;
 }

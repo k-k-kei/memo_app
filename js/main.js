@@ -9,13 +9,20 @@ $(".closebtn").on("click", function () {
     $(".modal").fadeOut();
 });
 
+
+class Post {
+    constructor(title, text) {
+        data.title = title;
+        data.text = text;
+    }
+}
+
 // データ保存
 $(".savebtn").on("click", function () {
     const title = $(".inputbox-title-input").val();
     const text = $(".input-text-long").val();
-    localStorage.setItem(title, text);
-    const html = '<div class="textarea-items"><p class="textarea-items-title">' + title + '</p><p class="textarea-items-text">' + text + '</p></div>';
-    $(".memoblock-contents").append(html);
+    let input = new Post(title, text);
+    localStorage.setItem(title, JSON.stringify(input));
     $(".modal").fadeOut();
     location.reload();
 });
@@ -23,54 +30,36 @@ $(".savebtn").on("click", function () {
 // データを表示
 for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    const value = localStorage.getItem(key);
-    const html = '<div class="textarea-items"><p class="textarea-items-title">' + key + '</p><p class="textarea-items-text">' + value + '</p></div>';
+    const value = JSON.parse(localStorage.getItem(key));
+    const html = '<div class="textarea-items"><p class="textarea-items-title">' + key + '</p><p class="textarea-items-text">' + value.text + '</p></div>';
     $(".memoblock-contents").append(html);
 }
 
-// メモの編集
-$(".text-edit").on("click", function () {
-    $(".modal-edit").fadeIn();
-    let title = $(".textarea-title").html();
-    let text = $(".textarea-text").html();
-    $(".inputbox-title-input-edit").html(title);
-    $(".input-text-long-edit").val(text);
-});
+function random() {
+    let len = localStorage.length;
+    return Math.floor(Math.random() * len);
+}
 
-// 編集画面クローズ
-$(".closebtn-edit").on("click", function () {
-    $(".modal-edit").fadeOut();
-})
+function shuffle1() {
+    let num = random();
+    const key = localStorage.key(num);
+    return key;
+}
 
-// 編集画面更新ボタン
-$(".savebtn-edit").on("click", function () {
-    let index = $(".textarea-title").index();
-    let title = localStorage.key(index);
-    let edit = $(".input-text-long-edit").val();
-    localStorage.setItem(title, edit);
-    location.reload();
-})
+function shuffle2() {
+    let num = random();
+    const key = localStorage.key(num);
+    return key;
+}
 
-// メモ削除
-$(".text-delete").on("click", function () {
-    let key = $(".textarea-title").html();
-    localStorage.removeItem(key);
-    location.reload();
-});
-
-// メモ一覧クリック時の処理
-// クリックしたメモのタイトルを右側に表示
-$(".textarea-items").on("click", function () {
-    let n = $(".textarea-items").index(this);
-    let title = $(".textarea-items-title").eq(n).html();
-    $(".textarea-title").html(title);
-    console.log(n, title);
-});
-
-// クリックしたメモの本文を右側に表示
-$(".textarea-items").on("click", function () {
-    let n = $(".textarea-items").index(this);
-    let text = $(".textarea-items-text").eq(n).html();
-    $(".textarea-text").html(text);
-    console.log(n, text);
+$(".shuffle").on("click", function () {
+    let key1 = shuffle1();
+    let key2 = shuffle2();
+    const memo1 = JSON.parse(localStorage.getItem(key1));
+    const memo2 = JSON.parse(localStorage.getItem(key2));
+    console.log([memo1, memo2]);
+    $(".memo1-title").html(memo1.title);
+    $(".memo1-text").html(memo1.text);
+    $(".memo2-title").html(memo2.title);
+    $(".memo2-text").html(memo2.text);
 });
