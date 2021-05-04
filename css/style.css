@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Kiwi Maru', serif;   
+}
+
 a{
     text-decoration: none;
 }
@@ -13,6 +17,35 @@ a{
 --------------------------------------------------- */
 .wapper{
     width: 100%;
+}
+
+.header{
+    width: 100%;
+    height: 8vh;
+    background-color: #a9a9a9;
+}
+
+.header-contents{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px;
+    width: 30%;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.bi{
+    width: 200%;
+    height: auto;
+    color: #ffff00;
+}
+
+
+.logo{
+    font-size: 2em;
+    color: #fafafa;
+    letter-spacing: 0.5em;
 }
 
 .container{
@@ -33,7 +66,7 @@ a{
 
 .inputbox{
     margin: 20px 20px;
-    background-color: #fafafa;
+    background-color: #dcdcdc;
     border-radius: 10px;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
@@ -42,6 +75,29 @@ a{
     text-align: center;
     padding: 20px 20px;
     font-weight: bold;
+}
+
+input{
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    resize: none;
+    width: 90%;
+    height: 5vh;
+    padding: 20px;
+}
+
+textarea{
+    border: none; 
+    border-radius: 10px;
+    outline: none;
+    resize: none;
+    width: 90%;
+    padding: 20px;
+}
+
+label:hover{
+    cursor: text;
 }
 
 .inputbox-title-input{
@@ -68,16 +124,21 @@ a{
 }
 
 .savebtn{
-    margin-bottom: 20px;
-    padding: 10px 10px;
-    background-color: #4169e1;
-    font-size: 1em;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
 }
 
-.closebtn{
-    margin-bottom: 20px;
-    padding: 10px 10px;
-    background-color: #c0c0c0;
+.savebtn:hover{
+    cursor: pointer;
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
 }
 
 /* -----------------------------------------------
@@ -89,7 +150,7 @@ a{
     width: 30%;
     height: 100vh;
     margin: 20px 20px;
-    background-color: #fafafa;
+    background-color: #d3d3d3;
     border-radius: 10px;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
     overflow: scroll;
@@ -98,15 +159,15 @@ a{
 .memoblock-header{
     width: 100%;
     height: 3vh;
-    padding: 20px 20px;
+    padding: 30px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .memoblock-title{
     font-size: 16px;
     font-weight: bold;
+    margin: 0 auto;
 }
 
 .new-item{
@@ -124,9 +185,11 @@ a{
 
 .textarea-items{
     margin-bottom: 20px;
+    padding: 5px 15px;
     width: 100%;
     height: 9vh;
     border-radius: 10px;
+    background-color: #fff;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
@@ -158,23 +221,49 @@ a{
     width: 30%;
     height: 100vh;
     margin: 20px 20px;
-    background-color: #fafafa;
+    background-color: #c0c0c0;
     border-radius: 10px;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
+.showarea{
+    text-align: center;
+}
+
+.showtitle{
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.shuffle{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #ffff00;/*ボタン色*/
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+.shuffle:hover{
+    cursor: pointer;
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+}
+
 .memoarea{
     width: 90%;
-    margin: 50px auto;
+    margin: 20px auto;
 }
 
 .memosize{
     width: 100%;
-    height: 20vh;
+    height: 15vh;
     margin: 5px auto;
     padding: 20px 20px;
     border-radius: 10px;
-    border: 5px solid #ffffff;
+    background-color: #fff;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
     overflow: scroll;
     word-wrap: break-word;
@@ -194,6 +283,10 @@ a{
     width: 100%;
     text-align: center;
     font-size: 3rem;
+}
+
+.answer-title{
+    padding: 20px 0;
 }
 
 .show-answer{

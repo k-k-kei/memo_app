@@ -12,8 +12,8 @@ $(".closebtn").on("click", function () {
 
 class Post {
     constructor(title, text) {
-        data.title = title;
-        data.text = text;
+        this.title = title;
+        this.text = text;
     }
 }
 
@@ -23,7 +23,6 @@ $(".savebtn").on("click", function () {
     const text = $(".input-text-long").val();
     let input = new Post(title, text);
     localStorage.setItem(title, JSON.stringify(input));
-    $(".modal").fadeOut();
     location.reload();
 });
 
@@ -32,7 +31,7 @@ for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     const value = JSON.parse(localStorage.getItem(key));
     const html = '<div class="textarea-items"><p class="textarea-items-title">' + key + '</p><p class="textarea-items-text">' + value.text + '</p></div>';
-    $(".memoblock-contents").append(html);
+    $(".memoblock-contents").append(html).hide().fadeIn(400);
 }
 
 function random() {
