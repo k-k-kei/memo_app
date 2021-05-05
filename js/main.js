@@ -19,10 +19,9 @@ class Post {
 
 // データ保存
 $(".savebtn").on("click", function () {
-    let title = $(".inputbox-title-input").val();
+    let title = $(".inputarea-title-input").val();
     let text = $(".input-text-long").val();
     let input = new Post(title, text);
-    console.log(title, text);
     localStorage.setItem(title, JSON.stringify(input));
     location.reload();
 });
@@ -88,8 +87,8 @@ $(".modal-closebtn").on("click", function () {
 
 // モーダルを保存
 $(".modal-savebtn").on("click", function () {
-    let title = $(".inputbox-title-input").val();
-    let text = $(".input-text-long").val();
+    let title = $(".modal-title-input").val();
+    let text = $(".modal-text-long").val();
     $(".static-title").html(title);
     $(".static-text").html(text);
     $(".modal").css("display", "none");
