@@ -112,9 +112,8 @@ a{
 
 .inputarea{
     margin: 20px 20px;
-    background-color: #dcdcdc;
+    background-color: #d3d3d3;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
 .inputarea-title{
@@ -198,7 +197,6 @@ label:active{
     margin: 20px 20px;
     background-color: #d3d3d3;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
     overflow: scroll;
 }
 
@@ -236,7 +234,6 @@ label:active{
     height: 9vh;
     border-radius: 10px;
     background-color: #fff;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
 .textarea-items-title{
@@ -267,9 +264,8 @@ label:active{
     width: 30%;
     height: 100vh;
     margin: 20px 20px;
-    background-color: #c0c0c0;
+    background-color: #d3d3d3;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
 .showarea{
@@ -310,7 +306,6 @@ label:active{
     padding: 20px 20px;
     border-radius: 10px;
     background-color: #fff;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
     overflow: scroll;
     word-wrap: break-word;
 }
@@ -351,9 +346,8 @@ label:active{
     width: 30%;
     height: 100vh;
     margin: 20px 20px;
-    background-color: #c0c0c0;
+    background-color: #d3d3d3;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1); 
 }
 
 
