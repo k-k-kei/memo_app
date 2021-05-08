@@ -35,45 +35,72 @@ $(".savebtn").on("click", function () {
     ref.push(post);
 });
 
-// firebaseへデータ送信
+// 掛け合わせアイデアの保存
+$(".idea-save").on("click", function () {
+    let postkey = 1;
+    let text = $(".show-answer").val();
+    let post = {
+        postkey: postkey,
+        text: text
+    }
+    ref.push(post);
+    $(".show-answer").val('');
+});
+
+// firebaseデータの表示
 ref.on("child_added", function (data) {
     let v = data.val();
+    let p = v.postkey;
     let t = v.title;
     let x = v.text;
-    console.log(v)
-    console.log(t)
-    console.log(x)
-    localStorage.setItem(t, x)
-    const h = '<div class="textarea-items"><p class="textarea-items-title">' + v.title + '</p><p class="textarea-items-text">' + v.text + '</p></div>';
-    $(".memoblock-contents").prepend(h);
+    if (p === 0) {
+        sessionStorage.setItem(t, x)
+        const h = '<div class="textarea-items"><p class="textarea-items-title">' + v.title + '</p><p class="textarea-items-text">' + v.text + '</p></div>';
+        $(".memoblock-contents").prepend(h);
+    }
+});
+
+ref.on("child_added", function (data) {
+    let v = data.val();
+    let p = v.postkey;
+    let x = v.text;
+    if (p === 1) {
+        const h = '<div class="memolist"><div class="stock"><div class="delete-tag"><img src="image/delete-tag.svg" alt="button" class="tag-image"></div><div class="stock-text">' + x + '</div ></div></div>';
+        $(".idea-board").prepend(h);
+    };
+
 });
 
 
 // ローカルストレージからランダムでデータを取得
 function shuffle1() {
-    let num = random();
-    const key = localStorage.key(num);
+    let len = sessionStorage.length;
+    let num = Math.floor(Math.random() * len);
+    const key = sessionStorage.key(num);
     return key;
 }
 
 // ローカルストレージからランダムでデータを取得
 function shuffle2() {
-    let num = random();
-    const key = localStorage.key(num);
+    let len = sessionStorage.length;
+    let num = Math.floor(Math.random() * len);
+    const key = sessionStorage.key(num);
     return key;
 }
 
 // ランダムなデータを表示
 $(".shuffle").on("click", function () {
-    let key1 = shuffle1();
-    let key2 = shuffle2();
-    const memo1 = JSON.parse(localStorage.getItem(key1));
-    const memo2 = JSON.parse(localStorage.getItem(key2));
+    let memo1 = shuffle1();
+    let val1 = sessionStorage.getItem(memo1);
+    let memo2 = shuffle2();
+    let val2 = sessionStorage.getItem(memo2);
+    // const memo1 = JSON.parse(sessionStorage.getItem(key1));
+    // const memo2 = JSON.parse(sessionStorage.getItem(key2));
     console.log([memo1, memo2]);
-    $(".memo1-title").html(memo1.title);
-    $(".memo1-text").html(memo1.text);
-    $(".memo2-title").html(memo2.title);
-    $(".memo2-text").html(memo2.text);
+    $(".memo1-title").html(memo1);
+    $(".memo1-text").html(val1);
+    $(".memo2-title").html(memo2);
+    $(".memo2-text").html(val2);
 });
 
 // モード切り替え1
@@ -102,3 +129,9 @@ $(".modal-savebtn").on("click", function () {
     $(".static-text").html(text);
     $(".modal").css("display", "none");
 });
+
+// 削除機能
+// $(document).on('click', '.tag-image', function () {
+//     let m = $(".stock-text").html();
+//     console.log(m);
+// });
