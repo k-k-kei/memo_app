@@ -1,32 +1,3 @@
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyAL-R87FbZKeq-v8gZqy7VeKg5iqy8Cv94",
-    authDomain: "memoma-f6749.firebaseapp.com",
-    projectId: "memoma-f6749",
-    storageBucket: "memoma-f6749.appspot.com",
-    messagingSenderId: "361517209271",
-    appId: "1:361517209271:web:8a69cd1a023f12774d5f32"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const ref = firebase.database().ref();
-
-// ログイン認証
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-ui.start('#auth', {
-    signInOptions: [
-        // List of OAuth providers supported.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        firebase.auth.GithubAuthProvider.PROVIDER_ID
-    ],
-    // Other config options...
-});
-
-
 // メモ入力フォームオープン
 $(".new-item").on("click", function () {
     $(".modal").fadeIn();
@@ -37,55 +8,92 @@ $(".closebtn").on("click", function () {
     $(".modal").fadeOut();
 });
 
-// firebaseへデータ保存
-$(".savebtn").on("click", function () {
-    let postkey = 0;
-    let title = $(".inputarea-title-input").val();
-    let text = $(".input-text-long").val();
-    let post = {
-        postkey: postkey,
-        title: title,
-        text: text
+// firebaseの設定
+var firebaseConfig = {
+    apiKey: "AIzaSyAL-R87FbZKeq-v8gZqy7VeKg5iqy8Cv94",
+    authDomain: "memoma-f6749.firebaseapp.com",
+    projectId: "memoma-f6749",
+    storageBucket: "memoma-f6749.appspot.com",
+    messagingSenderId: "361517209271",
+    appId: "1:361517209271:web:8a69cd1a023f12774d5f32"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// ログインユーザーの値を取得
+var unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        // ログインしていれば中通る
+        // ユーザー情報が表示される
+        console.log(user);
+        uname = user.displayName;
+        console.log(uname);
+
+        // firebaseへデータ保存
+        $(".savebtn").on("click", function () {
+            let postkey = 0;
+            let username = user.displayName;
+            let userId = user.uid;
+            let title = $(".inputarea-title-input").val();
+            let text = $(".input-text-long").val();
+            let post = {
+                postkey: postkey,
+                username: username,
+                userId: userId,
+                title: title,
+                text: text
+            }
+            db.ref().push(post);
+        });
+
+        // firebaseデータの表示
+        db.ref().on("child_added", function (data) {
+            let v = data.val();
+            let p = v.postkey;
+            let t = v.title;
+            let x = v.text;
+            let userId = user.uid;
+            let dataId = v.userId;
+            if (p === 0 && userId === dataId) {
+                sessionStorage.setItem(t, x)
+                const h = '<div class="textarea-items"><p class="textarea-items-title">' + v.title + '</p><p class="textarea-items-text">' + v.text + '</p></div>';
+                $(".memoblock-contents").prepend(h);
+            }
+        });
+
+        // 掛け合わせアイデアの保存
+        $(".idea-save").on("click", function () {
+            let postkey = 1;
+            let username = user.displayName;
+            let userId = user.uid;
+            let text = $(".show-answer").val();
+            let post = {
+                postkey: postkey,
+                username: username,
+                userId: userId,
+                text: text
+            }
+            db.ref().push(post);
+            $(".show-answer").val('');
+        });
+
+        db.ref().on("child_added", function (data) {
+            let v = data.val();
+            let p = v.postkey;
+            let x = v.text;
+            let userId = user.uid;
+            let dataId = v.userId;
+            if (p === 1 && userId === dataId) {
+                const h = '<div class="memolist"><div class="stock"><div class="delete-tag"><img src="image/delete-tag.svg" alt="button" class="tag-image"></div><div class="stock-text">' + x + '</div ></div></div>';
+                $(".idea-board").prepend(h);
+            };
+
+        });
     }
-    ref.push(post);
+    // 登録解除
+    unsubscribe();
 });
-
-// 掛け合わせアイデアの保存
-$(".idea-save").on("click", function () {
-    let postkey = 1;
-    let text = $(".show-answer").val();
-    let post = {
-        postkey: postkey,
-        text: text
-    }
-    ref.push(post);
-    $(".show-answer").val('');
-});
-
-// firebaseデータの表示
-ref.on("child_added", function (data) {
-    let v = data.val();
-    let p = v.postkey;
-    let t = v.title;
-    let x = v.text;
-    if (p === 0) {
-        sessionStorage.setItem(t, x)
-        const h = '<div class="textarea-items"><p class="textarea-items-title">' + v.title + '</p><p class="textarea-items-text">' + v.text + '</p></div>';
-        $(".memoblock-contents").prepend(h);
-    }
-});
-
-ref.on("child_added", function (data) {
-    let v = data.val();
-    let p = v.postkey;
-    let x = v.text;
-    if (p === 1) {
-        const h = '<div class="memolist"><div class="stock"><div class="delete-tag"><img src="image/delete-tag.svg" alt="button" class="tag-image"></div><div class="stock-text">' + x + '</div ></div></div>';
-        $(".idea-board").prepend(h);
-    };
-
-});
-
 
 // ローカルストレージからランダムでデータを取得
 function shuffle1() {

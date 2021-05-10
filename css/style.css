@@ -162,15 +162,14 @@ label:active{
 }
 
 .new-btn{
-    width: 10vw;
+    width: 100%;
     text-align: center;
-    margin: 0 auto;
-    padding: 30px 30px;
 }
 
 .savebtn{
   display: inline-block;
   padding: 0.5em 1em;
+  margin: 10px;
   text-decoration: none;
   background: #668ad8;/*ボタン色*/
   color: #FFF;
@@ -520,3 +519,19 @@ label:active{
     text-align: end;
 }
 
+
+/* -----------------------------------------------
+
+モバイル対応
+
+--------------------------------------------------- */
+
+@media screen and (max-width:1000px){
+
+.mode-btn1 .mode-btn2{
+    display: none;
+}
+
+
+
+}
