@@ -11,6 +11,21 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const ref = firebase.database().ref();
 
+// ログイン認証
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+ui.start('#auth', {
+    signInOptions: [
+        // List of OAuth providers supported.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID
+    ],
+    // Other config options...
+});
+
 
 // メモ入力フォームオープン
 $(".new-item").on("click", function () {
