@@ -45,6 +45,8 @@ var unsubscribe = firebase.auth().onAuthStateChanged((user) => {
                 text: text
             }
             db.ref().push(post);
+            $(".inputarea-title-input").val("");
+            $(".input-text-long").val("");
         });
 
         // firebaseデータの表示
@@ -93,6 +95,15 @@ var unsubscribe = firebase.auth().onAuthStateChanged((user) => {
     }
     // 登録解除
     unsubscribe();
+});
+
+
+// 削除機能
+$(document).on('click', '.tag-image', function () {
+    let m = $(".stock-text").html();
+    let index = $(".memolist").index();
+    console.log(m);
+    console.log(index);
 });
 
 // ローカルストレージからランダムでデータを取得
@@ -152,9 +163,3 @@ $(".modal-savebtn").on("click", function () {
     $(".static-text").html(text);
     $(".modal").css("display", "none");
 });
-
-// 削除機能
-// $(document).on('click', '.tag-image', function () {
-//     let m = $(".stock-text").html();
-//     console.log(m);
-// });
