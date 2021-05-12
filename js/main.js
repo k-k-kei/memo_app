@@ -26,7 +26,6 @@ ui.start('#auth', {
     // Other config options...
 });
 
-
 // メモ入力フォームオープン
 $(".new-item").on("click", function () {
     $(".modal").fadeIn();
