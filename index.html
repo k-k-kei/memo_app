@@ -1,149 +1,71 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/firstview.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-
-    <title>memoma</title>
+    <script defer src="/__/firebase/5.3.1/firebase.js"></script>
+    <script defer src="/__/firebase/5.3.1/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <script defer src="/__/firebase/init.js"></script>
 </head>
 
 <body>
-    <div class="wapper">
-
-        <!-- モーダル -->
-        <div class="modal">
-            <div class="inputbox-shadow"></div>
-            <div class="inputbox">
-                <p class="inputbox-title">タイトル</p>
-                <input type="text" class="modal-title-input" maxlength="50">
-                <p class="inputbox-text">本文</p>
-                <textarea name="modal-text-box" class="modal-text-long" cols="30" rows="10" maxlength="500"></textarea>
-                <div class="modal-btn">
-                    <div class="modal-closebtn">閉じる</div>
-                    <div class="modal-savebtn">保存</div>
-                </div>
-            </div>
+    <div class="header">
+        <div class="header-contents">
+            <div class="logo">memoma</div>
         </div>
-
-        <!-- ヘッダー -->
-        <header class="header">
-            <div class="header-contents">
-                <div class="logo">memoma</div>
-                <div class="image">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-lightbulb" viewBox="0 0 16 16">
-                        <path
-                            d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z" />
-                    </svg>
-                </div>
-            </div>
-            <!-- モード切り替えボタン -->
-            <button class="mode-btn1">標準</button>
-            <button class="mode-btn2">テーマ固定</button>
-        </header>
-        <!-- エラー表示 -->
-        <!-- <div class="error">※文字を入力しましょう！</div> -->
-
-        <div class="container">
-
-            <!-- 新規メモ入力画面 -->
-            <div class="new">
-                <div class="inputarea">
-                    <p class="inputarea-title">なにに？</p>
-                    <input type="text" class="inputarea-title-input" maxlength="50">
-                    <p class="inputarea-text">どんな特徴がある？</p>
-                    <textarea name="input-text-box" class="input-text-long" cols="30" rows="10"
-                        maxlength="500"></textarea>
-                    <div class="new-btn">
-                        <div class="savebtn">保存</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 保存メモ一覧 -->
-            <!-- ヘッダー -->
-            <div class="memoblock">
-                <div class="memoblock-header">
-                    <p class="memoblock-title">アイデアのタネ</p>
-                </div>
-
-
-                <!-- メモ一覧 -->
-                <div class="memoblock-contents">
-                    <!-- 保存したメモが挿入される -->
-                </div>
-            </div>
-
-            <!-- メモ掛け算（モード1） -->
-            <div class="show">
-                <div class="showarea">
-                    <div class="showtitle">アイデアを広げよう！</div>
-                    <div class="shuffle">掛け合わせる</div>
-                    <div class="memoarea">
-                        <div class="memo1 memosize">
-                            <p class="memo1-title memotitle"></p>
-                            <p class="memo1-text memotext"></p>
-                        </div>
-                        <div class="mark">×</div>
-                        <div class="memo2 memosize">
-                            <p class="memo2-title memotitle"></p>
-                            <p class="memo2-text memotext"></p>
-                        </div>
-                    </div>
-                    <div class="answer-title">掛け合わせたらどうなる？自由に書こう！</div>
-                    <div class="answerarea">
-                        <textarea name="" id="" cols="30" rows="10" class="show-answer"></textarea>
-                        <div class="idea-save">保存</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- メモ掛け算（モード2） -->
-            <div class="second-contents">
-                <div class="showarea">
-                    <div class="showtitle">テーマを決めてブレストしよう！</div>
-                    <div class="shuffle">掛け合わせる</div>
-                    <div class="memoarea">
-                        <div class="memo1 memosize">
-                            <p class="memo1-title memotitle"></p>
-                            <p class="memo1-text memotext"></p>
-                        </div>
-                        <div class="mark">×</div>
-                        <div class="memo2 memosize staticmemo">
-                            <p class="static-title memotitle"></p>
-                            <p class="static-text memotext"></p>
-                        </div>
-                    </div>
-                    <div class="answer-title">テーマに自由に掛け合わせてみよう！</div>
-                    <div class="answerarea">
-                        <textarea name="" id="" cols="30" rows="10" class="show-answer"></textarea>
-                        <div class="idea-save">保存</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="second-container">
-            <p class="tag">アイデア倉庫</p>
-            <div class="idea-board"></div>
-        </div>
-
     </div>
 
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase.js"></script>
 
-    <script src="js/main.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAL-R87FbZKeq-v8gZqy7VeKg5iqy8Cv94",
+            authDomain: "memoma-f6749.firebaseapp.com",
+            databaseURL: "https://memoma-f6749-default-rtdb.firebaseio.com",
+            projectId: "memoma-f6749",
+            storageBucket: "memoma-f6749.appspot.com",
+            messagingSenderId: "361517209271",
+            appId: "1:361517209271:web:8a69cd1a023f12774d5f32"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 
+    <script type="text/javascript">
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    return true;
+                },
+                uiShown: function () {
+                    document.getElementById('loader').style.display = 'none';
+                }
+            },
+            signInFlow: 'popup',
+            signInSuccessUrl: './content.html',
+            signInOptions: [
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+        };
+        ui.start('#firebaseui-auth-container', uiConfig);
     </script>
 </body>
 
