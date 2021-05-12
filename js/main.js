@@ -166,3 +166,24 @@ $(".modal-savebtn").on("click", function () {
     $(".static-text").html(text);
     $(".modal").css("display", "none");
 });
+
+// モバイル版メニューボタン
+// アイデア出し
+$(".main-btn").on("click", function () {
+    $(".main-btn").css("background-color", "#ffff00");
+    $(".sub-btn").css("background-color", "#d3d3d3");
+    $(".new").css("display", "");
+    $(".memoblock").css("display", "");
+    $(".show").css("display", "none");
+    $(".second-container").css("display", "none");
+});
+
+// 着想用
+$(".sub-btn").on("click", function () {
+    $(".main-btn").css("background-color", "#d3d3d3");
+    $(".sub-btn").css("background-color", "#ffff00");
+    $(".new").css("display", "none");
+    $(".memoblock").css("display", "none");
+    $(".show").css("display", "block");
+    $(".second-container").css("display", "block");
+});

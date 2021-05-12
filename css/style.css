@@ -99,6 +99,18 @@ a{
     margin: 0 auto;
 }
 
+
+/* -----------------------------------------------
+
+モバイル用メニューボタン
+
+--------------------------------------------------- */
+
+.nav{
+    display: none;
+}
+
+
 /* -----------------------------------------------
 
 メモ入力画面 
@@ -484,24 +496,26 @@ label:active{
 
 .idea-board{
     width: 90%;
+    height: 100vh;
     margin: 0px auto;
     background-color: #d3d3d3;
     border-radius: 10px;
-
+    overflow: scroll;
+    word-wrap: break-word;
 }
 
 .idea-box{
     width: 100%;
     height: auto;
     display: flex;
-    margin: 0 auto;
-    overflow: scroll;
-    word-wrap: break-word;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 40px auto;
 }
 
 .memolist{
-    width: 30%;
-    height: 30%;
+    width: 18vw;
+    height: 30vh;
     background-color: #fff;
     border-radius: 10px;
     margin: 15px;
@@ -543,11 +557,68 @@ ipad対応
 モバイル対応
 
 --------------------------------------------------- */
-@media screen and (max-width:376px){
+@media screen and (max-width:650px){
 
 .container{
     display: contents;
     margin: 0 auto;
+}
+
+.nav{
+    display: block;
+    width: 100%;
+}
+
+.nav-bar{
+    display: flex;
+    height: 5vh;
+    margin: 10px;
+}
+
+.main-btn{
+    width: 50%;
+    background-color: #ffff00;
+    border-radius: 10px;
+    margin: 0 10px;
+    border: 1px solid #a9a9a9;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+.main-btn:active{
+    cursor: pointer;
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+}
+
+.main-btn p{
+    text-align: center;
+    padding: 8px;
+}
+
+.sub-btn{
+    width: 50%;
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    margin: 0 5px;
+    border: 1px solid #a9a9a9;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+.sub-btn:active{
+    cursor: pointer;
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+}
+
+.sub-btn p{
+    text-align: center;
+    padding: 8px;
 }
 
 .new{
@@ -561,11 +632,11 @@ ipad対応
 
 .memoblock{
     width: 100%;
-    height: auto;
     margin: 20px 0;
 }
 
 .show{
+    display: none;
     width: 100%;
     height: auto;
     margin: 20px 0;
@@ -574,8 +645,8 @@ ipad対応
 .idea-board{
     display:inline-block;
     width: 100%;
-    height: 50%;
     padding: 10px;
+
 }
 
 .memolist{
@@ -583,4 +654,11 @@ ipad対応
     margin: 10px;
 }
 
+.second-container{
+    display: none;
 }
+
+}
+/* -----------------------------------------------
+モバイル対応終わり
+--------------------------------------------------- */
