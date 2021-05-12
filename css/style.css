@@ -473,7 +473,7 @@ label:active{
 
 .second-container{
     width: 100%;
-    height: 100vh;
+    height: auto;
 }
 
 .tag{
@@ -483,15 +483,18 @@ label:active{
 }
 
 .idea-board{
-    display: flex;
-    /* justify-content: space-between; */
-    flex-wrap: wrap;
     width: 90%;
-    height: 95%;
     margin: 0px auto;
-    padding: 40px;
     background-color: #d3d3d3;
     border-radius: 10px;
+
+}
+
+.idea-box{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin: 0 auto;
     overflow: scroll;
     word-wrap: break-word;
 }
@@ -522,16 +525,62 @@ label:active{
 
 /* -----------------------------------------------
 
-モバイル対応
+ipad対応
 
 --------------------------------------------------- */
 
 @media screen and (max-width:1000px){
 
-.mode-btn1 .mode-btn2{
+.mode-btn1, .mode-btn2{
     display: none;
 }
 
+}
 
+
+/* -----------------------------------------------
+
+モバイル対応
+
+--------------------------------------------------- */
+@media screen and (max-width:376px){
+
+.container{
+    display: contents;
+    margin: 0 auto;
+}
+
+.new{
+    width: 100%;
+    height: auto;
+}
+
+.inputarea{
+    margin: 20px 0;
+}
+
+.memoblock{
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.show{
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.idea-board{
+    display:inline-block;
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+}
+
+.memolist{
+    width: 100%;
+    margin: 10px;
+}
 
 }
