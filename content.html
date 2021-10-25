@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/content.css" />
+    <link rel="stylesheet" href="css/content-mobile.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <!-- Googleフォント -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap読み込み -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
+    />
+
+    <!-- タイトル -->
+    <title>memoma</title>
+  </head>
+
+  <!-- 
+
+      
+    ここからメインコンテンツ
+
+    
+  -->
+  <body>
+    <div class="wapper">
+      <!-- ヘッダー -->
+      <header class="header">
+        <div class="header-contents">
+          <!-- ロゴ表示 -->
+          <div class="logo">memoma</div>
+          <div class="image">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-lightbulb"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"
+              />
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <!-- コンテンツ -->
+      <div class="container">
+        <!-- 新規メモ入力画面 -->
+        <div class="new">
+          <div class="inputarea">
+            <h1 class="inputarea-text">思いついたことをメモしよう！</h1>
+            <textarea
+              name="input-text-box"
+              class="input-text-long"
+              cols="30"
+              rows="10"
+              maxlength="500"
+            ></textarea>
+            <div class="new-btn">
+              <button class="savebtn">保存</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 保存メモ一覧 -->
+        <!-- ヘッダー -->
+        <div class="memoblock">
+          <div class="memoblock-header">
+            <h1 class="memoblock-title">アイデアのタネ</h1>
+          </div>
+
+          <!-- メモ一覧 -->
+          <!-- 保存したメモが挿入される -->
+          <div class="memoblock-contents"></div>
+        </div>
+
+        <!-- メモ掛け算（モード1） -->
+        <div class="show">
+          <div class="showarea">
+            <!-- タイトル -->
+            <div class="showtitle">
+              <h1>アイデアを広げよう！</h1>
+            </div>
+            <!-- シャッフルボタン -->
+            <button class="shuffle">掛け合わせる</button>
+            <!-- 1つ目のアイデア表示エリア -->
+            <div class="memoarea">
+              <div class="memo1 memosize">
+                <p class="memo1-text memotext"></p>
+              </div>
+              <span class="mark">×</span>
+              <!-- 2つ目のアイデア表示エリア -->
+              <div class="memo2 memosize">
+                <p class="memo2-text memotext"></p>
+              </div>
+            </div>
+            <!-- タイトル -->
+            <div class="answer-title">
+              <h1>掛け合わせたらどうなる？自由に書こう！</h1>
+            </div>
+            <!-- テキスト入力エリア -->
+            <div class="answerarea">
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                class="show-answer"
+              ></textarea>
+              <button class="idea-save">保存</button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- 掛け合わせたアイデアを貯めていくエリア -->
+      <div class="second-container">
+        <div class="title">
+          <h1 class="tag">アイデア倉庫</h1>
+        </div>
+        <div class="idea-board">
+          <div class="idea-box"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+
+    <!-- firebase_keyの読み込み -->
+    <script src="js/setting.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/actionListShuffleMemo.js"></script>
+    <script type="module" src="js/actionListShowMemos.js"></script>
+    <script type="module" src="js/actionListSaveMemos.js"></script>
+
+  </body>
+</html>

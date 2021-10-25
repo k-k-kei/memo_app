@@ -1,0 +1,114 @@
+/* -----------------------------------------------
+
+モバイル対応
+
+--------------------------------------------------- */
+@media screen and (max-width: 650px) {
+  .container {
+    display: contents;
+    margin: 0 auto;
+  }
+
+  .nav {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-bar {
+    display: flex;
+    height: 5vh;
+    margin: 10px;
+  }
+
+  .main-btn {
+    width: 50%;
+    background-color: #ffff00;
+    border-radius: 10px;
+    margin: 0 10px;
+    border: 1px solid #a9a9a9;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+  }
+
+  .main-btn:active {
+    cursor: pointer;
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px); /*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2); /*影を小さく*/
+    border-bottom: none;
+  }
+
+  .main-btn p {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .sub-btn {
+    width: 50%;
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    margin: 0 5px;
+    border: 1px solid #a9a9a9;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+  }
+
+  .sub-btn:active {
+    cursor: pointer;
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px); /*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2); /*影を小さく*/
+    border-bottom: none;
+  }
+
+  .sub-btn p {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .new {
+    width: 100%;
+    height: auto;
+  }
+
+  .inputarea {
+    margin: 20px 0;
+  }
+
+  .memoblock {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .show {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .idea-board {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .memolist {
+    width: 100%;
+    margin: 10px;
+  }
+
+  .title {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .stock-clear {
+    padding: 10px;
+    font-size: 0.8em;
+  }
+}
+/* -----------------------------------------------
+モバイル対応終わり
+--------------------------------------------------- */
