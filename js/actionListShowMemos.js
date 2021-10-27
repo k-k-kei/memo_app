@@ -29,10 +29,14 @@ const firestoreShowMemos = {
     //@results: アイデアの種表示用htmlに変換して返す 
     makeMemoCard(data) {
         const memos =
-            '<div class="textarea-items"><p class="textarea-items-title">' +
-            '</p><p class="textarea-items-text">' +
-            data.text +
-            "</p></div>";
+            '<li class="memo-item">'
+            + '<p class="memo-item-textarea">'
+            + data.data().text
+            + '</p>'
+            + '<input type="hidden" class="memo-id" value="'
+            + data.id
+            + '">'
+            + '</li>'
 
         return memos;
     },
@@ -41,10 +45,14 @@ const firestoreShowMemos = {
     //@results: アイデア倉庫表示用htmlに変換して返す 
     makeMixIdeaCard(data) {
         const mixIdeas =
-            '<div class="memolist">' +
-            '<p class="stock-text">' +
-            data.text +
-            "</p></div>";
+            '<div class="memolist">'
+            + '<p class="stock-text">'
+            + data.data().text
+            + '</p>'
+            + '<input type="hidden" class="mixidea-id" value="'
+            + data.id
+            + '">'
+            + '</div>'
 
         return mixIdeas;
     },
@@ -64,13 +72,12 @@ const firestoreShowMemos = {
             snapshot.docChanges().forEach((change) => {
             if (change.type === "added") {
                 //firestoreからデータを取得
-                const data = change.doc.data();
+                const data = change.doc;
                 //表示用のhtml要素を作る
                 const memos = makeMemoHtmlFunction(data);
                 //作成したhtml要素を挿入してアイテムを表示
                 this.insertMemoCards(area, memos);
             }
-
             //firestoreから取得したデータを配列にしてsessionStorageに保存
             //これはアイデア掛け合わせのランダム表示を実装するときに使う。
             array.push(change.doc.data().text);

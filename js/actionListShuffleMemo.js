@@ -32,8 +32,8 @@ const showRandomIdea = (area1, area2) => {
     showRandomIdea(area1, area2);
   } else {
     //異なっていれば指定したエリアにそれぞれを表示
-    area1.html(memo1);
-    area2.html(memo2);
+    area1.html(idea1);
+    area2.html(idea2);
   }
 }
 
