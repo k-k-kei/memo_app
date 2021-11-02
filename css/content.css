@@ -338,7 +338,6 @@ label:active {
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin: 40px auto;
 }
@@ -353,7 +352,7 @@ label:active {
 }
 
 .stock-text {
-  margin: 10px;
+  margin: 30px;
   overflow: scroll;
   word-wrap: break-word;
 }
