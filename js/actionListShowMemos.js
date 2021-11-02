@@ -30,13 +30,8 @@ const firestoreShowMemos = {
     makeMemoCard(data) {
         const memos =
             '<li class="memo-item">'
-            + '<p class="memo-item-textarea">'
-            + data.data().text
-            + '</p>'
-            + '<input type="hidden" class="memo-id" value="'
-            + data.id
-            + '">'
-            + '</li>'
+            + '<p class="memo-item-textarea">' + data.data().text + '</p>'
+            + '<button id="' + data.id + '" class="delete-btn">×</button></li>';
 
         return memos;
     },
@@ -45,14 +40,9 @@ const firestoreShowMemos = {
     //@results: アイデア倉庫表示用htmlに変換して返す 
     makeMixIdeaCard(data) {
         const mixIdeas =
-            '<div class="memolist">'
-            + '<p class="stock-text">'
-            + data.data().text
-            + '</p>'
-            + '<input type="hidden" class="mixidea-id" value="'
-            + data.id
-            + '">'
-            + '</div>'
+            '<li class="memolist">'
+            + '<p class="stock-text">' + data.data().text + '</p>'
+            + '<button id="' + data.id + '" class="delete-mixidea-btn">×</button></li>';
 
         return mixIdeas;
     },
